@@ -11,6 +11,8 @@ router.get('/', function(req, res) {
 });
 
 router.post('/invite', function(req, res) {
+    console.log(config.emailList);
+    console.log(config.emailList.indexOf(req.body.email));
     if (req.body.email && (config.emailList.indexOf(req.body.email) > -1) && (!config.inviteToken || (!!config.inviteToken && req.body.token === config.inviteToken))) {
     function doInvite() {
       request.post({
@@ -81,13 +83,13 @@ router.post('/invite', function(req, res) {
     } else {
       doInvite();
     }
-  } else if (req.body.email && (config.emailList.indexOf(req.body.email) > -1)) {
-    setTimeout(3000, function() {
+  } else if (req.body.email && (config.emailList.indexOf(req.body.email) === -1)) {
+    setTimeout(function() {
       res.render('result', {
           community: config.community,
           message: 'Success! Check &ldquo;'+ req.body.email +'&rdquo; for an invite from Slack.'
       });
-    });
+    }, 3000);
   } else {
     var errMsg = [];
     if (!req.body.email) {
