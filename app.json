@@ -20,6 +20,12 @@
       "description": "Shared invite token used to get access. Leave blank if you don't want users to have to provide a token.",
       "value": "",
       "required": false
-    }
+    },
+    "EMAIL_LIST": {
+        "description": "List of allowed emails seperated by a comma",
+        "value": "",
+        "required": false
+    },
   }
+}
 }
