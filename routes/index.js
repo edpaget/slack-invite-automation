@@ -50,7 +50,7 @@ router.post('/invite', function(req, res) {
 
             res.render('result', {
               community: config.community,
-              message: 'Failed! ' + error,
+              message: 'Failed!',
               isFailed: true
             });
           }
@@ -74,7 +74,7 @@ router.post('/invite', function(req, res) {
           error = 'Invalid captcha.';
           res.render('result', {
             community: config.community,
-            message: 'Failed! ' + error,
+              message: 'Failed! ',
             isFailed: true
           });
         }
