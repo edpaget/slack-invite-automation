@@ -88,7 +88,7 @@ router.post('/invite', function(req, res) {
           community: config.community,
           message: 'Success! Check &ldquo;'+ req.body.email +'&rdquo; for an invite from Slack.'
       });
-    }, 3000);
+    }, Math.floor(Math.random() * (4500 - 1000)) + 1000);
   } else {
     var errMsg = [];
     if (!req.body.email) {
